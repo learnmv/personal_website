@@ -3,53 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mahesh Dommaraju - Developer Portfolio</title>
+    <title>Mahesh Varma - Terminal Portfolio</title>
     <link rel="stylesheet" href="src/assets/css/styles.css" />
-    <script defer src="src/assets/js/scripts.js"></script>
   </head>
   <body>
-    <header>
-      <h1 id="name">Mahesh Dommaraju</h1>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <section id="about">
-      <h2>About Me</h2>
-      <p id="about-text">
-        <!-- Dynamic content will be inserted here -->
-      </p>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul id="skills-list">
-        <!-- Dynamic content will be inserted here -->
-      </ul>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div id="projects-container">
-        <!-- Dynamic content will be inserted here -->
+    <div id="terminal">
+      <div id="header">
+        <h1>Mahesh Varma - Portfolio</h1>
+        <p class="subtitle">
+          [Software Engineer | Fremont, CA | March 30, 2025]
+        </p>
       </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p id="contact-info">
-        <!-- Dynamic content will be inserted here -->
-      </p>
-    </section>
-
-    <footer>
-      <p>&copy; 2025 Mahesh Dommaraju</p>
-    </footer>
+      <div id="content">
+        <section>
+          <h2>Summary</h2>
+          <p>
+            Driven software engineer with expertise in Python, ML frameworks,
+            and cloud technologies. Proven track record in optimizing real-time
+            data processing and automating pipelines with AWS/Linux, improving
+            deployment times significantly.
+          </p>
+        </section>
+        <section>
+          <h2>Education</h2>
+          <p>
+            <strong>Wright State University</strong> - M.S. Computer Science
+            (GPA: 3.8, Dec 2024)
+          </p>
+          <p>
+            <strong>National Institute of Technology</strong> - B.Tech
+            Electronics Engineering (GPA: 3.5, Jul 2019)
+          </p>
+        </section>
+        <section>
+          <h2>Experience</h2>
+          <p>
+            <strong>FactSet | Software Engineer III</strong> (Apr 2022 - Dec
+            2022)
+          </p>
+          <ul>
+            <li>
+              Optimized real-time news pipeline on Linux using Python, reducing
+              latency by 0.1ms.
+            </li>
+            <li>
+              Built AWS S3 buckets for document storage during on-prem to cloud
+              migration.
+            </li>
+            <li>Automated testing with tox, reducing bug rates by 30%.</li>
+          </ul>
+          <p>
+            <strong>Infosys | Python Developer</strong> (Sep 2019 - Apr 2022)
+          </p>
+          <ul>
+            <li>
+              Designed compensation review system with Python/SQL, cutting cycle
+              time from 3 months to 1 month.
+            </li>
+            <li>Implemented RBAC with Django Admin for secure workflows.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Projects</h2>
+          <p><strong>Credit Card Fraud Detection System</strong></p>
+          <ul>
+            <li>
+              Built anomaly detection with autoencoders, improving accuracy by
+              30% using PCA.
+            </li>
+            <li>Integrated into a Django dashboard via REST API.</li>
+          </ul>
+          <p><strong>Blog Application</strong></p>
+          <ul>
+            <li>
+              Dynamic blog app with Python/Django, featuring RBAC and real-time
+              comments.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Skills</h2>
+          <p>
+            Python, Bash, C++, Java, HTML, CSS, JavaScript, Django, React, AWS,
+            Docker, Kubernetes, SQL, Git, Linux
+          </p>
+        </section>
+        <section>
+          <h2>Contact</h2>
+          <p>Email: maheshvarma.dommaraju@gmail.com | Phone: +1-937-241-3273</p>
+        </section>
+      </div>
+      <div id="interactive">
+        <div id="output"></div>
+        <div id="input-line">
+          <span class="prompt">mahesh@portfolio:~$ </span>
+          <input
+            type="text"
+            id="input"
+            placeholder="Type 'help' for commands"
+            autofocus
+          />
+        </div>
+      </div>
+    </div>
+    <script src="src/assets/js/scripts.js"></script>
   </body>
 </html>

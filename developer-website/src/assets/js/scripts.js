@@ -1,95 +1,64 @@
-// This file contains JavaScript code for interactivity on the website.
+// Resume data for interactive commands
+const resumeData = {
+  about:
+    "Driven software engineer with expertise in Python, ML frameworks, and cloud technologies.",
+  experience: {
+    factset:
+      "Software Engineer III (Apr 2022 - Dec 2022): Optimized real-time news pipeline, reduced latency by 0.1ms.",
+    infosys:
+      "Python Developer (Sep 2019 - Apr 2022): Automated compensation review, cut cycle time from 3 months to 1 month.",
+  },
+  projects: {
+    "credit-card-fraud":
+      "Anomaly detection system with autoencoders, improved accuracy by 30%.",
+    "blog-app": "Dynamic blog app with RBAC and real-time comments.",
+  },
+  skills:
+    "Python, Bash, C++, Java, HTML, CSS, JavaScript, Django, React, AWS, Docker, Kubernetes, SQL, Git, Linux",
+  education:
+    "M.S. Computer Science (Wright State, GPA: 3.8) | B.Tech Electronics (NIT, GPA: 3.5)",
+  contact: "maheshvarma.dommaraju@gmail.com | +1-937-241-3273",
+};
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Smooth scrolling for navigation links
-  const links = document.querySelectorAll("nav a");
-  links.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href");
-      const targetSection = document.querySelector(targetId);
-      targetSection.scrollIntoView({ behavior: "smooth" });
-    });
-  });
+// Command handlers
+const commands = {
+  help: "Commands: about, experience [factset/infosys], projects [credit-card-fraud/blog-app], skills, education, contact, clear",
+  about: resumeData.about,
+  skills: resumeData.skills,
+  education: resumeData.education,
+  contact: resumeData.contact,
+  clear: () => (output.innerHTML = ""),
+};
 
-  // Form submission handling (example)
-  const contactForm = document.getElementById("contact-form");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      // Handle form submission logic here
-      alert("Form submitted! Thank you for reaching out.");
-      contactForm.reset();
-    });
+// DOM elements
+const output = document.getElementById("output");
+const input = document.getElementById("input");
+
+// Handle command input
+input.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    const userInput = input.value.trim().toLowerCase();
+    const [cmd, ...args] = userInput.split(" ");
+    let response = "Command not found. Type 'help' for options.";
+
+    if (commands[cmd]) {
+      if (typeof commands[cmd] === "function") {
+        commands[cmd]();
+      } else {
+        response = commands[cmd];
+      }
+    } else if (cmd === "experience" && args[0]) {
+      response = resumeData.experience[args[0]] || "Experience not found.";
+    } else if (cmd === "projects" && args[0]) {
+      response =
+        resumeData.projects[args[0].replace("-", "")] || "Project not found.";
+    }
+
+    output.innerHTML += `<p><span class="command">${userInput}</span>: ${response}</p>`;
+    input.value = "";
+    terminal.scrollTop = terminal.scrollHeight;
   }
-
-  // Example of a simple animation on project cards
-  const projectCards = document.querySelectorAll(".project");
-  projectCards.forEach((card) => {
-    card.addEventListener("mouseenter", function () {
-      this.classList.add("hover");
-    });
-    card.addEventListener("mouseleave", function () {
-      this.classList.remove("hover");
-    });
-  });
-
-  // Resume data (extracted from Mahesh_Dommaraju.docx)
-  const resumeData = {
-    name: "Mahesh Dommaraju",
-    about:
-      "I am a passionate developer with expertise in building web applications. I specialize in HTML, CSS, JavaScript, and modern frameworks like React and Node.js.",
-    skills: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React",
-      "Node.js",
-      "Express",
-      "MongoDB",
-    ],
-    projects: [
-      {
-        title: "Personal Website",
-        description: "A portfolio website showcasing my skills and projects.",
-      },
-      {
-        title: "E-commerce Platform",
-        description: "An online store built with React and Node.js.",
-      },
-      {
-        title: "Blogging Platform",
-        description:
-          "A full-stack application for creating and managing blogs.",
-      },
-    ],
-    contact:
-      "Email: mahesh.dommaraju@example.com | GitHub: https://github.com/maheshdommaraju",
-  };
-
-  // Populate name
-  document.getElementById("name").textContent = resumeData.name;
-
-  // Populate about section
-  document.getElementById("about-text").textContent = resumeData.about;
-
-  // Populate skills
-  const skillsList = document.getElementById("skills-list");
-  resumeData.skills.forEach((skill) => {
-    const li = document.createElement("li");
-    li.textContent = skill;
-    skillsList.appendChild(li);
-  });
-
-  // Populate projects
-  const projectsContainer = document.getElementById("projects-container");
-  resumeData.projects.forEach((project) => {
-    const div = document.createElement("div");
-    div.classList.add("project");
-    div.innerHTML = `<h3>${project.title}</h3><p>${project.description}</p>`;
-    projectsContainer.appendChild(div);
-  });
-
-  // Populate contact
-  document.getElementById("contact-info").textContent = resumeData.contact;
 });
+
+// Focus input on load
+window.onload = () => input.focus();

@@ -1,100 +1,112 @@
 body {
-    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a1a, #000);
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
     margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background: #f4f4f9;
-    color: #333;
-}
-
-header {
-    background: #0078d7;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0;
+    padding: 20px;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: flex-start;
 }
 
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #ffcc00;
-}
-
-section {
-    padding: 40px 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    background: #fff;
+#terminal {
+    background: rgba(0, 0, 0, 0.9);
+    border: 3px solid #00ff00;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    overflow-y: auto;
+    max-height: 90vh;
 }
 
-h2 {
-    color: #0078d7;
+#header {
+    text-align: center;
+    border-bottom: 2px dashed #00ff00;
+    padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
-#skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+h1 {
+    color: #00ff00;
+    margin: 0;
+    font-size: 24px;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.subtitle {
+    color: #00cc00;
+    font-size: 14px;
+}
+
+#content {
+    margin-bottom: 20px;
+}
+
+section {
+    margin: 20px 0;
+}
+
+h2 {
+    color: #00ff00;
+    border-bottom: 1px solid #00cc00;
+    padding-bottom: 5px;
+    font-size: 18px;
+}
+
+p, li {
+    color: #ccffcc;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+ul {
     list-style: none;
-    padding: 0;
+    padding-left: 20px;
 }
 
-#skills-list li {
-    background: #0078d7;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 0.9rem;
+ul li:before {
+    content: ">> ";
+    color: #00ff00;
 }
 
-.project {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    background: #f9f9f9;
-    transition: transform 0.3s;
+#interactive {
+    border-top: 2px dashed #00ff00;
+    padding-top: 20px;
 }
 
-.project:hover {
-    transform: scale(1.05);
+#output p {
+    margin: 5px 0;
+    color: #ccffcc;
 }
 
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #0078d7;
-    color: #fff;
-    position: relative;
-    bottom: 0;
+.prompt {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.command {
+    color: #ffffff;
+}
+
+#input-line {
+    display: flex;
+    align-items: center;
+}
+
+#input {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 16px;
     width: 100%;
+    outline: none;
+    padding: 5px;
+}
+
+#input::placeholder {
+    color: #006600;
 }
