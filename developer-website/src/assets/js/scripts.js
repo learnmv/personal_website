@@ -299,3 +299,218 @@ function lazyLoadImages() {
 
 // Initialize lazy loading
 document.addEventListener('DOMContentLoaded', lazyLoadImages);
+
+// ===== VISITOR COUNTER FUNCTIONALITY =====
+class VisitorCounter {
+  constructor() {
+    this.storageKey = 'mahesh-portfolio-visitors';
+    this.userKey = 'mahesh-portfolio-user-id';
+    this.visitKey = 'mahesh-portfolio-last-visit';
+    this.init();
+  }
+
+  init() {
+    const isUniqueVisitor = this.checkUniqueVisitor();
+    if (isUniqueVisitor) {
+      this.incrementVisitorCount();
+    }
+    
+    this.displayVisitorCount();
+    this.animateCounter();
+  }
+
+  checkUniqueVisitor() {
+    // Generate a unique fingerprint for this browser/device
+    const fingerprint = this.generateFingerprint();
+    const storedFingerprint = localStorage.getItem(this.userKey);
+    const lastVisit = localStorage.getItem(this.visitKey);
+    const now = Date.now();
+    const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+    // Check if this is a completely new visitor
+    if (!storedFingerprint) {
+      localStorage.setItem(this.userKey, fingerprint);
+      localStorage.setItem(this.visitKey, now.toString());
+      return true;
+    }
+
+    // Check if it's the same user but after 24 hours (return visitor)
+    if (storedFingerprint === fingerprint) {
+      if (!lastVisit || (now - parseInt(lastVisit)) > oneDay) {
+        localStorage.setItem(this.visitKey, now.toString());
+        return false; // Same user, don't increment
+      }
+      return false; // Same user within 24 hours
+    }
+
+    // Different fingerprint on same device (different user)
+    localStorage.setItem(this.userKey, fingerprint);
+    localStorage.setItem(this.visitKey, now.toString());
+    return true;
+  }
+
+  generateFingerprint() {
+    // Create a unique fingerprint based on browser/device characteristics
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    ctx.textBaseline = 'top';
+    ctx.font = '14px Arial';
+    ctx.fillText('Visitor fingerprint', 2, 2);
+    
+    const fingerprint = [
+      navigator.userAgent,
+      navigator.language,
+      screen.width + 'x' + screen.height,
+      screen.colorDepth,
+      new Date().getTimezoneOffset(),
+      !!window.sessionStorage,
+      !!window.localStorage,
+      canvas.toDataURL()
+    ].join('|');
+
+    // Simple hash function
+    let hash = 0;
+    for (let i = 0; i < fingerprint.length; i++) {
+      const char = fingerprint.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32-bit integer
+    }
+    
+    return Math.abs(hash).toString(36);
+  }
+
+  incrementVisitorCount() {
+    const currentCount = this.getVisitorCount();
+    const newCount = currentCount + 1;
+    localStorage.setItem(this.storageKey, newCount.toString());
+    
+    // Optional: Log the visit for analytics
+    console.log(`New unique visitor! Total count: ${newCount}`);
+  }
+
+  getVisitorCount() {
+    const count = localStorage.getItem(this.storageKey);
+    return count ? parseInt(count) : 0;
+  }
+
+  displayVisitorCount() {
+    const counterElement = document.getElementById('visitor-count');
+    if (counterElement) {
+      const count = this.getVisitorCount();
+      counterElement.textContent = this.formatNumber(count);
+    }
+  }
+
+  formatNumber(num) {
+    if (num >= 1000000) {
+      return (num / 1000000).toFixed(1) + 'M';
+    } else if (num >= 1000) {
+      return (num / 1000).toFixed(1) + 'K';
+    }
+    return num.toLocaleString(); // Adds commas for thousands
+  }
+
+  animateCounter() {
+    const counterElement = document.getElementById('visitor-count');
+    if (!counterElement) return;
+
+    const finalCount = this.getVisitorCount();
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const stepDuration = duration / steps;
+    const increment = finalCount / steps;
+
+    let currentCount = 0;
+    counterElement.textContent = '0';
+    counterElement.classList.add('counting');
+
+    const timer = setInterval(() => {
+      currentCount += increment;
+      if (currentCount >= finalCount) {
+        currentCount = finalCount;
+        clearInterval(timer);
+        counterElement.classList.remove('counting');
+        counterElement.classList.add('animate');
+        setTimeout(() => counterElement.classList.remove('animate'), 300);
+      }
+      counterElement.textContent = this.formatNumber(Math.floor(currentCount));
+    }, stepDuration);
+  }
+
+  // Get visitor analytics
+  getVisitorAnalytics() {
+    return {
+      totalVisitors: this.getVisitorCount(),
+      userFingerprint: localStorage.getItem(this.userKey),
+      lastVisit: new Date(parseInt(localStorage.getItem(this.visitKey) || '0')),
+      isReturningVisitor: !!localStorage.getItem(this.userKey)
+    };
+  }
+
+  // Method to reset counter (for development/testing)
+  resetCounter() {
+    localStorage.removeItem(this.storageKey);
+    localStorage.removeItem(this.userKey);
+    localStorage.removeItem(this.visitKey);
+    this.displayVisitorCount();
+  }
+
+  // Method to set a specific count (for development/testing)
+  setVisitorCount(count) {
+    localStorage.setItem(this.storageKey, count.toString());
+    this.displayVisitorCount();
+  }
+}
+
+// Initialize visitor counter when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize visitor counter
+  const visitorCounter = new VisitorCounter();
+  
+  // Make it globally available for debugging
+  window.visitorCounter = visitorCounter;
+  
+  // Set initial visitor count if it's the first time 
+  const currentCount = visitorCounter.getVisitorCount();
+  if (currentCount === 0) {
+    // Start with true count - no fake base number
+    console.log('Starting visitor counter from 0 - tracking real visitors only');
+  }
+
+  // Animate counter when it comes into view
+  const counterSection = document.querySelector('.visitor-counter');
+  if (counterSection) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            visitorCounter.animateCounter();
+          }, 300);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+
+    counterObserver.observe(counterSection);
+  }
+
+  // Optional: Show welcome message for new vs returning visitors
+  const analytics = visitorCounter.getVisitorAnalytics();
+  if (analytics.isReturningVisitor) {
+    console.log('Welcome back! 👋');
+  } else {
+    console.log('Welcome to my portfolio! 🎉');
+  }
+});
+
+// Add some utility functions for the visitor counter
+console.log(`
+🎯 Visitor Counter Debug Commands:
+- visitorCounter.resetCounter() - Reset visitor count to 0
+- visitorCounter.setVisitorCount(number) - Set specific count
+- visitorCounter.getVisitorCount() - Get current count
+- visitorCounter.getVisitorAnalytics() - Get detailed analytics
+- visitorCounter.animateCounter() - Replay animation
+`);

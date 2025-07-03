@@ -905,6 +905,139 @@ section {
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
 }
 
+/* ===== VISITOR COUNTER ===== */
+.visitor-counter {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -40px;
+    /* Overlap with footer */
+    z-index: 10;
+    padding: 0;
+}
+
+.counter-content {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    width: 180px;
+    height: 90px;
+    border-radius: 90px 90px 0 0;
+    /* Semi-circle shape */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.counter-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center bottom, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 90px 90px 0 0;
+}
+
+.counter-icon {
+    display: none;
+    /* Hide icon in compact design */
+}
+
+.counter-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.counter-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+.counter-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    font-family: var(--font-mono);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.counter-number.animate {
+    transform: scale(1.05);
+}
+
+/* Counter Animation */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.counter-number.counting {
+    animation: countUp 0.5s ease-out;
+}
+
+/* Pulse animation for the semi-circle */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 -4px 25px rgba(var(--primary-color-rgb), 0.3);
+    }
+
+    100% {
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.counter-content:hover {
+    animation: pulse 2s infinite;
+}
+
+/* Responsive Design for Counter */
+@media (max-width: 768px) {
+    .counter-content {
+        width: 140px;
+        height: 70px;
+        border-radius: 70px 70px 0 0;
+    }
+
+    .counter-number {
+        font-size: 1.2rem;
+    }
+
+    .counter-label {
+        font-size: 0.6rem;
+    }
+
+    .visitor-counter {
+        margin-bottom: -30px;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
