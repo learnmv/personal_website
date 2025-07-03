@@ -3,109 +3,721 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mahesh Varma - Terminal Portfolio</title>
+    <title>Mahesh Dommaraju - Full-Stack Software Engineer</title>
+    <meta name="description" content="Mahesh Dommaraju - Full-Stack Software Engineer with 5+ years experience in React, .NET Core, Azure, Python. Expert in building scalable web applications, microservices, and AI/ML solutions.">
+    <meta name="keywords" content="Full-Stack Developer, Software Engineer, React, .NET Core, Azure, TypeScript, JavaScript, Python, Web Development, Microservices, AI/ML, Mahesh Dommaraju">
+    <meta name="author" content="Mahesh Dommaraju">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Mahesh Dommaraju - Full-Stack Software Engineer">
+    <meta property="og:description" content="Full-Stack Software Engineer with 5+ years experience in React, .NET Core, Azure. Expert in building scalable web applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://maheshdommaraju.netlify.app">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mahesh Dommaraju - Full-Stack Software Engineer">
+    <meta name="twitter:description" content="Full-Stack Software Engineer with 5+ years experience in React, .NET Core, Azure.">
+    
     <link rel="stylesheet" href="src/assets/css/styles.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
   <body>
-    <div id="terminal">
-      <div id="header">
-        <h1>Mahesh Varma - Portfolio</h1>
-        <p class="subtitle">
-          [Software Engineer | Fremont, CA | March 30, 2025]
-        </p>
-      </div>
-      <div id="content">
-        <section>
-          <h2>Summary</h2>
-          <p>
-            Driven software engineer with expertise in Python, ML frameworks,
-            and cloud technologies. Proven track record in optimizing real-time
-            data processing and automating pipelines with AWS/Linux, improving
-            deployment times significantly.
-          </p>
-        </section>
-        <section>
-          <h2>Education</h2>
-          <p>
-            <strong>Wright State University</strong> - M.S. Computer Science
-            (GPA: 3.8, Dec 2024)
-          </p>
-          <p>
-            <strong>National Institute of Technology</strong> - B.Tech
-            Electronics Engineering (GPA: 3.5, Jul 2019)
-          </p>
-        </section>
-        <section>
-          <h2>Experience</h2>
-          <p>
-            <strong>FactSet | Software Engineer III</strong> (Apr 2022 - Dec
-            2022)
-          </p>
-          <ul>
-            <li>
-              Optimized real-time news pipeline on Linux using Python, reducing
-              latency by 0.1ms.
-            </li>
-            <li>
-              Built AWS S3 buckets for document storage during on-prem to cloud
-              migration.
-            </li>
-            <li>Automated testing with tox, reducing bug rates by 30%.</li>
-          </ul>
-          <p>
-            <strong>Infosys | Python Developer</strong> (Sep 2019 - Apr 2022)
-          </p>
-          <ul>
-            <li>
-              Designed compensation review system with Python/SQL, cutting cycle
-              time from 3 months to 1 month.
-            </li>
-            <li>Implemented RBAC with Django Admin for secure workflows.</li>
-          </ul>
-        </section>
-        <section>
-          <h2>Projects</h2>
-          <p><strong>Credit Card Fraud Detection System</strong></p>
-          <ul>
-            <li>
-              Built anomaly detection with autoencoders, improving accuracy by
-              30% using PCA.
-            </li>
-            <li>Integrated into a Django dashboard via REST API.</li>
-          </ul>
-          <p><strong>Blog Application</strong></p>
-          <ul>
-            <li>
-              Dynamic blog app with Python/Django, featuring RBAC and real-time
-              comments.
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Skills</h2>
-          <p>
-            Python, Bash, C++, Java, HTML, CSS, JavaScript, Django, React, AWS,
-            Docker, Kubernetes, SQL, Git, Linux
-          </p>
-        </section>
-        <section>
-          <h2>Contact</h2>
-          <p>Email: maheshvarma.dommaraju@gmail.com | Phone: +1-937-241-3273</p>
-        </section>
-      </div>
-      <div id="interactive">
-        <div id="output"></div>
-        <div id="input-line">
-          <span class="prompt">mahesh@portfolio:~$ </span>
-          <input
-            type="text"
-            id="input"
-            placeholder="Type 'help' for commands"
-            autofocus
-          />
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-text">MD</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </div>
       </div>
-    </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">
+              <span class="gradient-text">Mahesh Dommaraju</span>
+            </h1>
+            <h2 class="hero-subtitle">Full-Stack Software Engineer</h2>
+            <p class="hero-description">
+              5+ years building scalable web applications with Python, React, TypeScript, .NET Core, and Azure. 
+              Passionate about creating efficient, user-centric solutions that drive business impact.
+            </p>
+            <div class="hero-buttons">
+              <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-envelope"></i>
+                Get In Touch
+              </a>
+              <a href="#experience" class="btn btn-secondary">
+                <i class="fas fa-briefcase"></i>
+                View Experience
+              </a>
+            </div>
+            <div class="hero-social">
+              <a href="https://www.linkedin.com/in/maheshdommaraju/" target="_blank" class="social-link">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="mailto:maheshvarmadommaraju671@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i>
+              </a>
+              <a href="tel:937-241-3273" class="social-link">
+                <i class="fas fa-phone"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-indicator">
+          <div class="scroll-arrow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">Professional Experience Summary</p>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              Highly skilled Full-stack Software Engineer with over 5 years of experience specializing in architecting, 
+              developing, and deploying robust, scalable web applications. Proficient in modern front-end technologies 
+              including React and TypeScript, coupled with strong expertise in .NET Core, RESTful APIs, and cloud platforms like Azure.
+            </p>
+            <p>
+              Proven ability to design and build user-centric web experiences, contribute to front-end architecture, 
+              and integrate complex back-end services, aligning with business and scientific objectives. Adept at implementing 
+              CI/CD pipelines and ensuring high-quality, maintainable code.
+            </p>
+            <div class="stats">
+              <div class="stat">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Years Experience</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Projects Completed</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Major Clients</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Work Experience</h2>
+          <p class="section-subtitle">My professional journey</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Senior Software Engineer</h3>
+                <span class="company">Teracloudx, CA, USA</span>
+                <span class="duration">Jan 2025 – Present</span>
+              </div>
+              <ul class="timeline-list">
+                <li>Led the design and development of customer-facing web applications using React and TypeScript, enhancing user engagement and product discoverability for a Live Best Services Healthcare platform.</li>
+                <li>Architected and implemented scalable, modular, and accessible UI components, establishing a reusable component library that improved development efficiency by 25% and ensured brand consistency across web properties.</li>
+                <li>Collaborated with product and design teams to translate complex requirements into intuitive user workflows and content management solutions, optimizing the presentation of service information.</li>
+                <li>Contributed to the evolution of the front-end architecture, integrating modern state management patterns (Redux) and optimizing build processes for improved performance and maintainability.</li>
+                <li>Developed robust RESTful APIs with .NET Core to seamlessly integrate front-end applications with various back-end services and data sources, including SQL and NoSQL databases.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Software Engineer</h3>
+                <span class="company">FactSet, Hyderabad, India</span>
+                <span class="duration">Apr 2022 – Dec 2022</span>
+              </div>
+              <ul class="timeline-list">
+                <li>Instrumental in the migration of monolithic legacy applications to microservices architecture on Azure using .NET 6.0 and AKS, building new web interfaces with React to consume these services, boosting system scalability and reliability by 40%.</li>
+                <li>Designed and implemented comprehensive CI/CD pipelines within Azure DevOps, automating infrastructure provisioning (PowerShell, Bicep, Terraform, Docker) and web application deployments, reducing manual deployment time by 60%.</li>
+                <li>Developed and secured enterprise-grade RESTful APIs using .NET Web API, implementing robust access control (OAuth 2.0, JWT, Azure AD) to support secure data exchange for front-end applications.</li>
+                <li>Enhanced web application quality and performance by building and executing a suite of automated end-to-end tests using Selenium and Playwright, integrated directly into the deployment pipeline, ensuring high-quality user experiences.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>Senior Dot Net Developer</h3>
+                <span class="company">Infosys, Bangalore, India</span>
+                <span class="duration">Sep 2019 – Apr 2022</span>
+              </div>
+              <ul class="timeline-list">
+                <li>Designed and developed a secure Debtor Payment Portal, a key e-commerce-like platform, using ASP.NET Core and AngularJS (precursor to modern React-based SPAs), processing over $15M in annual transactions.</li>
+                <li>Modernized 5+ legacy applications to scalable .NET web applications, improving maintainability and performance by creating RESTful APIs and web interfaces, demonstrating strong foundational skills in building complex web systems.</li>
+                <li>Engineered and deployed scalable, real-time cloud solutions utilizing a suite of Azure services (Cosmos DB, App Security, Analytics) to support high-availability distributed web applications.</li>
+                <li>Improved data synchronization across enterprise systems by 50% by building robust integration workflows using Azure Service Bus and REST APIs, ensuring seamless data flow for web-based applications.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">Showcasing innovative solutions and technical expertise</p>
+        </div>
+        <div class="projects-grid">
+          <!-- Project 1: Healthcare Platform -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <div class="project-meta">
+                <h3>Healthcare Services Platform</h3>
+                <span class="project-tech">React • .NET Core • Azure</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p>Led development of a comprehensive healthcare platform for Live Best Services, featuring patient management, appointment scheduling, and telemedicine capabilities. Built with React and TypeScript for the frontend and .NET Core APIs for backend services.</p>
+              <div class="project-highlights">
+                <h4>Key Features:</h4>
+                <ul>
+                  <li>Real-time patient monitoring dashboard</li>
+                  <li>Integrated payment processing system</li>
+                  <li>HIPAA-compliant data handling</li>
+                  <li>Multi-role user management (patients, doctors, admins)</li>
+                  <li>Mobile-responsive design for all devices</li>
+                </ul>
+              </div>
+              <div class="project-results">
+                <span class="result-item">25% ↑ Development Efficiency</span>
+                <span class="result-item">40% ↑ User Engagement</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Microservices Migration -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-cubes"></i>
+              </div>
+              <div class="project-meta">
+                <h3>Enterprise Microservices Migration</h3>
+                <span class="project-tech">Azure • .NET 6.0 • AKS • Docker</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p>Architected and executed migration of monolithic legacy applications to microservices architecture on Azure cloud platform, improving system scalability, reliability, and deployment efficiency.</p>
+              <div class="project-highlights">
+                <h4>Technical Implementation:</h4>
+                <ul>
+                  <li>Containerized applications using Docker and Kubernetes (AKS)</li>
+                  <li>Implemented API Gateway for service orchestration</li>
+                  <li>Set up comprehensive monitoring with Azure Application Insights</li>
+                  <li>Automated CI/CD pipelines with Azure DevOps</li>
+                  <li>Database migration to Azure SQL and CosmosDB</li>
+                </ul>
+              </div>
+              <div class="project-results">
+                <span class="result-item">40% ↑ System Reliability</span>
+                <span class="result-item">60% ↓ Deployment Time</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: E-commerce Payment Portal -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-credit-card"></i>
+              </div>
+              <div class="project-meta">
+                <h3>Secure Payment Processing Portal</h3>
+                <span class="project-tech">ASP.NET Core • Angular • Azure Security</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p>Designed and developed a secure debtor payment portal processing over $15M annually, featuring advanced security measures, real-time transaction tracking, and comprehensive reporting capabilities.</p>
+              <div class="project-highlights">
+                <h4>Security & Features:</h4>
+                <ul>
+                  <li>PCI DSS compliant payment processing</li>
+                  <li>Multi-factor authentication and OAuth 2.0</li>
+                  <li>Real-time fraud detection algorithms</li>
+                  <li>Automated reconciliation and reporting</li>
+                  <li>Integration with multiple payment gateways</li>
+                </ul>
+              </div>
+              <div class="project-results">
+                <span class="result-item">$15M+ Annual Processing</span>
+                <span class="result-item">99.9% Uptime</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Real-time Analytics Dashboard -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="project-meta">
+                <h3>Real-time Business Intelligence Dashboard</h3>
+                <span class="project-tech">React • D3.js • Azure CosmosDB • SignalR</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p>Built an enterprise-grade real-time analytics dashboard providing actionable insights from multiple data sources, featuring interactive visualizations and automated alerting systems.</p>
+              <div class="project-highlights">
+                <h4>Dashboard Features:</h4>
+                <ul>
+                  <li>Real-time data streaming with SignalR</li>
+                  <li>Interactive charts using D3.js and Chart.js</li>
+                  <li>Customizable KPI tracking and alerts</li>
+                  <li>Role-based access control for different user levels</li>
+                  <li>Export capabilities (PDF, Excel, CSV)</li>
+                </ul>
+              </div>
+              <div class="project-results">
+                <span class="result-item">50% ↑ Decision Speed</span>
+                <span class="result-item">Real-time Insights</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: ML-Powered Recommendation Engine -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="project-meta">
+                <h3>AI-Powered Recommendation System</h3>
+                <span class="project-tech">Python • TensorFlow • Azure ML • .NET Core</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p>Developed an intelligent recommendation engine using machine learning algorithms to provide personalized content suggestions, improving user engagement and conversion rates significantly.</p>
+              <div class="project-highlights">
+                <h4>AI/ML Implementation:</h4>
+                <ul>
+                  <li>Collaborative filtering and content-based algorithms</li>
+                  <li>Neural network models using TensorFlow</li>
+                  <li>Real-time model training and deployment on Azure ML</li>
+                  <li>A/B testing framework for algorithm optimization</li>
+                  <li>RESTful APIs for seamless frontend integration</li>
+                </ul>
+              </div>
+              <div class="project-results">
+                <span class="result-item">35% ↑ User Engagement</span>
+                <span class="result-item">22% ↑ Conversion Rate</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: DevOps Automation Platform -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <div class="project-meta">
+                <h3>DevOps Automation Platform</h3>
+                <span class="project-tech">Azure DevOps • PowerShell • Terraform • Docker</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p>Created a comprehensive DevOps automation platform that streamlines infrastructure provisioning, application deployment, and monitoring across multiple environments with zero-downtime deployments.</p>
+              <div class="project-highlights">
+                <h4>Automation Features:</h4>
+                <ul>
+                  <li>Infrastructure as Code using Terraform and Bicep</li>
+                  <li>Automated testing pipelines with parallel execution</li>
+                  <li>Blue-green deployment strategies</li>
+                  <li>Automated rollback mechanisms</li>
+                  <li>Comprehensive logging and monitoring integration</li>
+                </ul>
+              </div>
+              <div class="project-results">
+                <span class="result-item">Zero Downtime Deployments</span>
+                <span class="result-item">80% ↓ Manual Tasks</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 7: Enterprise API Gateway -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <div class="project-meta">
+                <h3>Enterprise API Gateway & Management</h3>
+                <span class="project-tech">.NET Core • Azure API Management • OAuth 2.0</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p>Architected and implemented a centralized API gateway solution managing over 200+ microservices, providing authentication, rate limiting, caching, and comprehensive API analytics.</p>
+              <div class="project-highlights">
+                <h4>Gateway Capabilities:</h4>
+                <ul>
+                  <li>Centralized authentication and authorization</li>
+                  <li>Rate limiting and throttling policies</li>
+                  <li>Request/response transformation and validation</li>
+                  <li>Comprehensive API analytics and monitoring</li>
+                  <li>Developer portal with interactive documentation</li>
+                </ul>
+              </div>
+              <div class="project-results">
+                <span class="result-item">200+ APIs Managed</span>
+                <span class="result-item">99.95% API Availability</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 8: Mobile-First PWA -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div class="project-meta">
+                <h3>Progressive Web Application (PWA)</h3>
+                <span class="project-tech">React • Service Workers • IndexedDB • Push API</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p>Developed a mobile-first Progressive Web Application with offline capabilities, push notifications, and native app-like experience, achieving excellent performance scores and user adoption.</p>
+              <div class="project-highlights">
+                <h4>PWA Features:</h4>
+                <ul>
+                  <li>Offline-first architecture with service workers</li>
+                  <li>Push notifications for real-time updates</li>
+                  <li>App shell caching for instant loading</li>
+                  <li>Responsive design for all screen sizes</li>
+                  <li>Background sync for data consistency</li>
+                </ul>
+              </div>
+              <div class="project-results">
+                <span class="result-item">90+ Lighthouse Score</span>
+                <span class="result-item">300% ↑ Mobile Engagement</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 9: Data Integration Pipeline -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <div class="project-meta">
+                <h3>Enterprise Data Integration Pipeline</h3>
+                <span class="project-tech">Azure Data Factory • Python • SQL • Power BI</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p>Built a robust data integration pipeline processing millions of records daily from multiple sources, featuring real-time ETL processes, data validation, and automated reporting capabilities.</p>
+              <div class="project-highlights">
+                <h4>Pipeline Components:</h4>
+                <ul>
+                  <li>Real-time data ingestion from multiple sources</li>
+                  <li>Automated data cleansing and validation</li>
+                  <li>Incremental data loading strategies</li>
+                  <li>Error handling and data quality monitoring</li>
+                  <li>Automated reporting with Power BI integration</li>
+                </ul>
+              </div>
+              <div class="project-results">
+                <span class="result-item">5M+ Records/Day</span>
+                <span class="result-item">50% ↑ Data Accuracy</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 10: Automated Testing Framework -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-vial"></i>
+              </div>
+              <div class="project-meta">
+                <h3>End-to-End Testing Automation Framework</h3>
+                <span class="project-tech">Selenium • Playwright • C# • Azure DevOps</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p>Designed and implemented a comprehensive automated testing framework covering unit, integration, and end-to-end testing, significantly reducing bug rates and improving deployment confidence.</p>
+              <div class="project-highlights">
+                <h4>Testing Capabilities:</h4>
+                <ul>
+                  <li>Cross-browser automated testing with Selenium/Playwright</li>
+                  <li>API testing with automated contract validation</li>
+                  <li>Performance testing and load simulation</li>
+                  <li>Visual regression testing for UI components</li>
+                  <li>Parallel test execution for faster feedback</li>
+                </ul>
+              </div>
+              <div class="project-results">
+                <span class="result-item">70% ↓ Bug Rate</span>
+                <span class="result-item">85% Test Coverage</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Technical Skills</h2>
+          <p class="section-subtitle">Technologies I work with</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3 class="category-title">
+              <i class="fas fa-code"></i>
+              Programming & Scripting
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">C#</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">PowerShell</span>
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="category-title">
+              <i class="fas fa-server"></i>
+              .NET & Web Development
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">.NET Core</span>
+              <span class="skill-tag">ASP.NET Core</span>
+              <span class="skill-tag">Web API</span>
+              <span class="skill-tag">Entity Framework</span>
+              <span class="skill-tag">RESTful APIs</span>
+              <span class="skill-tag">MVC</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="category-title">
+              <i class="fas fa-laptop-code"></i>
+              Front-End
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Angular 14</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">jQuery</span>
+              <span class="skill-tag">Bootstrap</span>
+              <span class="skill-tag">Redux</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="category-title">
+              <i class="fas fa-database"></i>
+              Databases
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">MS SQL Server</span>
+              <span class="skill-tag">Azure SQL Database</span>
+              <span class="skill-tag">CosmosDB</span>
+              <span class="skill-tag">PostgreSQL</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="category-title">
+              <i class="fas fa-cloud"></i>
+              Cloud & DevOps (Azure)
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Azure App Services</span>
+              <span class="skill-tag">Azure Functions</span>
+              <span class="skill-tag">Azure VMs</span>
+              <span class="skill-tag">Azure DevOps</span>
+              <span class="skill-tag">CI/CD</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">AKS</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="category-title">
+              <i class="fas fa-vial"></i>
+              Testing & Tools
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Selenium</span>
+              <span class="skill-tag">Playwright</span>
+              <span class="skill-tag">NUnit</span>
+              <span class="skill-tag">xUnit</span>
+              <span class="skill-tag">MSTest</span>
+              <span class="skill-tag">TDD</span>
+              <span class="skill-tag">Agile/Scrum</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Education</h2>
+          <p class="section-subtitle">Academic background</p>
+        </div>
+        <div class="education-grid">
+          <div class="education-card">
+            <div class="education-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="education-content">
+              <h3>Master of Science in Computer Science</h3>
+              <p class="university">Wright State University</p>
+              <p class="location">Dayton, Ohio, USA</p>
+              <p class="gpa">GPA: 3.8/4.0</p>
+            </div>
+          </div>
+          
+          <div class="education-card">
+            <div class="education-icon">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="education-content">
+              <h3>Bachelor of Technology in Electronics & Communications Engineering</h3>
+              <p class="university">National Institute of Technology</p>
+              <p class="location">Surat, Gujarat, India</p>
+              <p class="gpa">GPA: 7.7/10</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">Let's work together</p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Email</h3>
+                <a href="mailto:maheshvarmadommaraju671@gmail.com">maheshvarmadommaraju671@gmail.com</a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Phone</h3>
+                <a href="tel:937-241-3273">937-241-3273</a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <div class="contact-details">
+                <h3>LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/maheshdommaraju/" target="_blank">linkedin.com/in/maheshdommaraju</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form">
+            <form id="contact-form">
+              <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+              </div>
+              <div class="form-group">
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group">
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>&copy; 2025 Mahesh Dommaraju. All rights reserved.</p>
+          <p>Built with passion and modern web technologies.</p>
+        </div>
+      </div>
+    </footer>
+
     <script src="src/assets/js/scripts.js"></script>
   </body>
 </html>

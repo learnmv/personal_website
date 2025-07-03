@@ -1,22 +1,43 @@
 {
-  "name": "developer-website",
+  "name": "mahesh-dommaraju-portfolio",
   "version": "1.0.0",
-  "description": "A personal website to showcase skills and projects.",
+  "description": "Professional portfolio website for Mahesh Dommaraju - Full-Stack Software Engineer",
   "main": "index.html",
   "scripts": {
-    "start": "live-server",
-    "build": "echo 'Build step not defined'",
-    "test": "echo 'No tests specified'"
+    "start": "live-server --port=3000 --open=/",
+    "dev": "live-server --port=3000 --open=/",
+    "build": "powershell -ExecutionPolicy Bypass -File build.ps1",
+    "build:clean": "if exist dist rmdir /s /q dist",
+    "test": "echo 'No tests specified'",
+    "deploy": "npm run build && echo 'Deploy the dist folder to Netlify'"
   },
   "keywords": [
     "portfolio",
-    "developer",
-    "website"
+    "full-stack-developer",
+    "software-engineer",
+    "react",
+    "dotnet",
+    "azure",
+    "mahesh-dommaraju",
+    "web-development",
+    "modern-ui"
   ],
-  "author": "Your Name",
+  "author": {
+    "name": "Mahesh Dommaraju",
+    "email": "maheshvarmadommaraju671@gmail.com",
+    "url": "https://www.linkedin.com/in/maheshdommaraju/"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maheshdommaraju/portfolio"
+  },
+  "homepage": "https://maheshdommaraju.netlify.app",
   "dependencies": {},
   "devDependencies": {
     "live-server": "^1.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
