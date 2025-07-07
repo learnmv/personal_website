@@ -470,17 +470,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Make it globally available for debugging
   window.visitorCounter = visitorCounter;
   
-  // Set professional starting numbers for a portfolio
+  // Set initial visitor count if it's the first time 
   const currentCount = visitorCounter.getVisitorCount();
   if (currentCount === 0) {
-    // Start with a professional base count that grows organically
-    const now = new Date();
-    const daysOnline = Math.floor((now - new Date('2024-01-01')) / (1000 * 60 * 60 * 24));
-    const organicBase = Math.floor(daysOnline * (2.5 + Math.random() * 1.5)); // 2-4 visitors per day
-    const professionalBase = Math.max(250, organicBase); // Minimum 250 for credibility
-    
-    visitorCounter.setVisitorCount(professionalBase);
-    console.log(`Portfolio visitor counter initialized with ${professionalBase} visitors`);
+    // Start with true count - no fake base number
+    console.log('Starting visitor counter from 0 - tracking real visitors only');
   }
 
   // Animate counter when it comes into view
@@ -491,23 +485,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (entry.isIntersecting) {
           setTimeout(() => {
             visitorCounter.animateCounter();
-          }, 500);
+          }, 300);
           counterObserver.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.3
+      threshold: 0.5
     });
 
     counterObserver.observe(counterSection);
   }
 
-  // Professional welcome messages
+  // Optional: Show welcome message for new vs returning visitors
   const analytics = visitorCounter.getVisitorAnalytics();
   if (analytics.isReturningVisitor) {
-    console.log('👋 Welcome back to Mahesh\'s portfolio!');
+    console.log('Welcome back! 👋');
   } else {
-    console.log('🎉 Thanks for visiting Mahesh\'s portfolio!');
+    console.log('Welcome to my portfolio! 🎉');
   }
 });
 
